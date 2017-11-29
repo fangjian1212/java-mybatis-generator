@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <classPathEntry
+            location="D:/develop/mavens/maven-fangchan/repository/mysql/mysql-connector-java/5.1.39/mysql-connector-java-5.1.39.jar"/>
+
+    <context id="mbgTables" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+            <property name="suppressDate" value="true"/>
+            <property name="useActualColumnNames" value="true" />
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://db201.dev.rs.com:3306/db_jc"
+                        userId="jc"
+                        password="jc_user">
+        </jdbcConnection>
+
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+
+        <javaModelGenerator targetPackage="com.chinaredstar.fc.dao.model" targetProject="mbg/output/">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="mapper" targetProject="mbg/output/">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.chinaredstar.fc.dao.mapper" targetProject="mbg/output/">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+<!--        <table schema="db_realty" tableName="fc_broker_room_resource_audit"  enableSelectByExample="true" enableDeleteByExample="true" enableCountByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="true" />
+            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>
+        </table>
+        <table schema="db_realty" tableName="fc_audited_room_picture" domainObjectName="AuditedRoomPictureModel" enableSelectByExample="true" enableDeleteByExample="true" enableCountByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="true" />
+            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>
+        </table>
+        <table schema="db_realty" tableName="fc_broker_plate" domainObjectName="BrokerPlateModel" enableSelectByExample="true" enableDeleteByExample="true" enableCountByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="true" />
+            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>
+        </table>
+        <table schema="db_realty" tableName="fc_broker_room_claim" domainObjectName="BrokerRoomClaimModel" enableSelectByExample="true" enableDeleteByExample="true" enableCountByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="true" />
+            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>
+        </table>
+
+        &lt;!&ndash;表0-1：小区基础信息表xiwa_redstar_community&ndash;&gt;
+        <table schema="db_realty" tableName="xiwa_redstar_community" domainObjectName="CommunityModel" enableSelectByExample="true" enableDeleteByExample="true" enableCountByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="true" />
+            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>
+            <columnOverride column="plate" javaType="java.lang.String" jdbcType="VARCHAR" ></columnOverride>
+            <columnOverride column="developers" javaType="java.lang.String" jdbcType="VARCHAR" ></columnOverride>
+            <columnOverride column="propertyName" javaType="java.lang.String" jdbcType="VARCHAR" ></columnOverride>
+            <columnOverride column="propertyCategory" javaType="java.lang.String" jdbcType="VARCHAR" ></columnOverride>
+            <columnOverride column="buildingDate" javaType="java.lang.String" jdbcType="VARCHAR" ></columnOverride>
+            <columnOverride column="volumeRate" javaType="java.lang.String" jdbcType="VARCHAR" ></columnOverride>
+            <columnOverride column="rentalRates" javaType="java.lang.String" jdbcType="VARCHAR" ></columnOverride>
+            <columnOverride column="greeningRate" javaType="java.lang.String" jdbcType="VARCHAR" ></columnOverride>
+            <columnOverride column="programFeatures" javaType="java.lang.String" jdbcType="VARCHAR" ></columnOverride>
+            <columnOverride column="introduction" javaType="java.lang.String" jdbcType="VARCHAR" ></columnOverride>
+        </table>
+
+        &lt;!&ndash;表0-2：房源基础信息表xiwa_redstar_community_room&ndash;&gt;
+        <table schema="db_realty" tableName="xiwa_redstar_community_room" domainObjectName="CommunityRoomModel" enableSelectByExample="true" enableDeleteByExample="true" enableCountByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="true" />
+            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>
+        </table>
+
+        &lt;!&ndash;表0-3：省市区基础信息表xiwa_redstar_location_area&ndash;&gt;
+        <table schema="db_realty" tableName="xiwa_redstar_location_area" domainObjectName="LocationAreaModel" enableSelectByExample="true" enableDeleteByExample="true" enableCountByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="true" />
+            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>
+        </table>
+
+        &lt;!&ndash;表0-4：学校基础信息表xiwa_redstar_school&ndash;&gt;
+        <table schema="db_realty" tableName="xiwa_redstar_school" domainObjectName="SchoolModel" enableSelectByExample="true" enableDeleteByExample="true" enableCountByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="true" />
+            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>
+            <columnOverride column="brochures" javaType="java.lang.String" jdbcType="VARCHAR" ></columnOverride>
+            <columnOverride column="schoolGuide" javaType="java.lang.String" jdbcType="VARCHAR" ></columnOverride>
+            <columnOverride column="introduce" javaType="java.lang.String" jdbcType="VARCHAR" ></columnOverride>
+            <columnOverride column="recommendLabel" javaType="java.lang.String" jdbcType="VARCHAR" ></columnOverride>
+            <columnOverride column="teacherResources" javaType="java.lang.String" jdbcType="VARCHAR" ></columnOverride>
+            <columnOverride column="schoolAward" javaType="java.lang.String" jdbcType="VARCHAR" ></columnOverride>
+            <columnOverride column="studentAward" javaType="java.lang.String" jdbcType="VARCHAR" ></columnOverride>
+            <columnOverride column="entryPosition" javaType="java.lang.String" jdbcType="VARCHAR" ></columnOverride>
+        </table>
+
+        &lt;!&ndash;表0-5：学校收费标准基础信息表xiwa_redstar_school_fee&ndash;&gt;
+        <table schema="db_realty" tableName="xiwa_redstar_school_fee" domainObjectName="SchoolFeeModel" enableSelectByExample="true" enableDeleteByExample="true" enableCountByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="true" />
+            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>
+        </table>
+
+        &lt;!&ndash;表0-6：名校榜基础信息表xiwa_redstar_famousschool&ndash;&gt;
+        <table schema="db_realty" tableName="xiwa_redstar_famousschool" domainObjectName="FamousSchoolModel" enableSelectByExample="true" enableDeleteByExample="true" enableCountByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="true" />
+            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>
+        </table>
+
+        &lt;!&ndash;表0-7：经纪人公司基础信息表xiwa_redstar_broker_company&ndash;&gt;
+        <table schema="db_realty" tableName="xiwa_redstar_broker_company" domainObjectName="BrokerCompanyModel" enableSelectByExample="true" enableDeleteByExample="true" enableCountByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="true" />
+            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>
+        </table>
+
+        &lt;!&ndash;表0-8：经纪人门店基础信息表xiwa_redstar_broker_sotre&ndash;&gt;
+        <table schema="db_realty" tableName="xiwa_redstar_broker_store" domainObjectName="BrokerStoreModel" enableSelectByExample="true" enableDeleteByExample="true" enableCountByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="true" />
+            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>
+        </table>-->
+
+        <!--表0-9：经纪人基础信息表xiwa_redstar_broker-->
+        <table schema="db_realty" tableName="xiwa_redstar_broker" domainObjectName="BrokerModel" enableSelectByExample="true" enableDeleteByExample="true" enableCountByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="true" />
+            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>
+            <ignoreColumn column="native" />
+        </table>
+
+       <!-- &lt;!&ndash;表0-10：预约订单基础信息表xiwa_redstar_visit_booking_order&ndash;&gt;
+        <table schema="db_realty" tableName="xiwa_redstar_visit_booking_order" domainObjectName="VisitBookingOrderModel" enableSelectByExample="true" enableDeleteByExample="true" enableCountByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="true" />
+            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>
+        </table>
+
+        &lt;!&ndash;表1-1：图片基础信息表xiwa_redstar_priture&ndash;&gt;
+        <table schema="db_realty" tableName="xiwa_redstar_picture" domainObjectName="PritureModel" enableSelectByExample="true" enableDeleteByExample="true" enableCountByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="true" />
+            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>
+        </table>
+
+        &lt;!&ndash;表1-2：市价格趋势基础信息表fc_city_price_trend&ndash;&gt;
+        <table schema="db_realty" tableName="fc_city_price_trend" domainObjectName="CityPriceTrendModel" enableSelectByExample="true" enableDeleteByExample="true" enableCountByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="true" />
+            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>
+        </table>
+
+        &lt;!&ndash;表1-3：区价格趋势基础信息表fc_area_price_trend&ndash;&gt;
+        <table schema="db_realty" tableName="fc_area_price_trend" domainObjectName="AreaPriceTrendModel" enableSelectByExample="true" enableDeleteByExample="true" enableCountByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="true" />
+            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>
+        </table>
+
+        &lt;!&ndash;表1-4：小区价格趋势基础信息表fc_community_price_trend&ndash;&gt;
+        <table schema="db_realty" tableName="fc_community_price_trend" domainObjectName="CommunityPriceTrendModel" enableSelectByExample="true" enableDeleteByExample="true" enableCountByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="true" />
+            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>
+        </table>
+
+        &lt;!&ndash;表1-5：小区学校对口信息表xiwa_redstar_community_school&ndash;&gt;
+        <table schema="db_realty" tableName="xiwa_redstar_community_school" domainObjectName="CommunitySchoolModel" enableSelectByExample="true" enableDeleteByExample="true" enableCountByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="true" />
+            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>
+        </table>
+
+        &lt;!&ndash;表1-6：小区经纪人对口基础信息表xiwa_redstar_broker_community&ndash;&gt;
+        <table schema="db_realty" tableName="xiwa_redstar_broker_community" domainObjectName="BrokerCommunityModel" enableSelectByExample="true" enableDeleteByExample="true" enableCountByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="true" />
+            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>
+        </table>
+
+        &lt;!&ndash;表1-7：订单(笔记)基础信息表xiwa_redstar_member_room&ndash;&gt;
+        <table schema="db_realty" tableName="xiwa_redstar_member_room" domainObjectName="MemberRoomModel" enableSelectByExample="true" enableDeleteByExample="true" enableCountByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="true" />
+            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>
+        </table>
+
+        &lt;!&ndash;表1-8：看房笔记基础信息表xiwa_redstar_kanfangnote&ndash;&gt;
+        <table schema="db_realty" tableName="xiwa_redstar_kanfangnote" domainObjectName="KanFangNoteModel" enableSelectByExample="true" enableDeleteByExample="true" enableCountByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="true" />
+            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>
+        </table>
+
+        &lt;!&ndash;表1-9：提醒基础信息表xiwa_redstar_ remindlist&ndash;&gt;
+        <table schema="db_realty" tableName="xiwa_redstar_remindlist" domainObjectName="RemindListModel" enableSelectByExample="true" enableDeleteByExample="true" enableCountByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="true" />
+            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>
+        </table>
+
+        &lt;!&ndash;表1-10：房源图片基础信息表xiwa_redstar_ room_priture&ndash;&gt;
+        <table schema="db_realty" tableName="xiwa_redstar_room_picture" domainObjectName="RoomPritureModel" enableSelectByExample="true" enableDeleteByExample="true" enableCountByExample="true" enableUpdateByExample="true">
+            <property name="useActualColumnNames" value="true" />
+            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>
+        </table>-->
+    </context>
+</generatorConfiguration>
